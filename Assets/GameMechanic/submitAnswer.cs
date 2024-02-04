@@ -21,7 +21,7 @@ public class submitAnswer : MonoBehaviour
         Transform check = GameObject.Find("AnsVLG")?.transform;
         string ansText = prompt.text;
 
-        for (int i = 0; i < check.childCount; i++)
+        for (int i = 0; i < check.childCount - 1; i++)
         {
             //string text = check.GetChild(i).GetComponent<TextMeshProUGUI>().text;
             TMP_Text checktext = check.GetChild(i).GetChild(0).GetComponent<TMP_Text>();

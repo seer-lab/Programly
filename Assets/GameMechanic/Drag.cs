@@ -31,6 +31,8 @@ public class Drag : EventTrigger
 
     private TMP_Text prompt;
     private bool assembled = false;
+    private TMP_Text button;
+    private RectTransform buttonTransform;
 
     private void Start()
     {
@@ -51,6 +53,19 @@ public class Drag : EventTrigger
 
         prompt = GameObject.Find("Prompt")?.GetComponent<TMP_Text>();
 
+        /*if(button == null)
+        {
+            button = GetComponent<TMP_Text>();
+            if(button  == null)
+            {
+                Debug.LogError("Button not found");
+                return;
+            }
+        }
+
+        buttonTransform = button.rectTransform;*/
+        //Vector3 buttonPos = buttonTransform.position;
+
     }
 
     // Update is called once per frame
@@ -63,6 +78,7 @@ public class Drag : EventTrigger
 
         leftAns = ansVLGRect.position.x - ansVLGRect.rect.width * 0.5f;
         rightAns = ansVLGRect.position.x + ansVLGRect.rect.width * 0.5f;
+
 
         if (dragging)
         {
@@ -129,6 +145,62 @@ public class Drag : EventTrigger
             }
             isHeal = false;
         }
+
+
+        /*if(dragging == false && checkvlg.childCount > 1)
+        {
+            int location = gameObject.transform.GetSiblingIndex();
+            Transform current = gameObject.transform;
+            int target = location;
+            Transform temp = null;
+
+            for(int i = 0; i < checkvlg.childCount; i++)
+            {
+                if(gameObject.transform.position.y  > checkvlg.GetChild(i).position.y)
+                {
+                    target = i;
+                    break;
+                }
+            }
+            for (int i = location; i > target; i--)
+            {
+                temp = checkvlg.GetChild(i);
+                temp.SetSiblingIndex(i+1);
+            }
+            //temp.gameObject.transform.SetSiblingIndex(target);
+            if (temp != null)
+            {
+                temp.SetSiblingIndex(target);
+            }
+        }*/
+
+        if (dragging == false && ansVertical.childCount > 1)
+        {
+            int location = gameObject.transform.GetSiblingIndex();
+            Transform current = gameObject.transform;
+            int target = location;
+            Transform temp = null;
+
+            for (int i = 0; i < ansVertical.childCount; i++)
+            {
+                if (gameObject.transform.position.y > ansVertical.GetChild(i).position.y)
+                {
+                    target = i;
+                    break;
+                }
+            }
+            for (int i = location; i > target; i--)
+            {
+                temp = ansVertical.GetChild(i);
+                temp.SetSiblingIndex(i + 1);
+            }
+            //temp.gameObject.transform.SetSiblingIndex(target);
+            if (temp != null)
+            {
+                temp.SetSiblingIndex(target);
+            }
+        }
+        
 
     }
 
