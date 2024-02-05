@@ -174,32 +174,29 @@ public class Drag : EventTrigger
             }
         }*/
 
-        if (dragging == false && ansVertical.childCount > 1)
+        /*if (dragging == false && ansVertical.childCount > 1)
         {
-            int location = gameObject.transform.GetSiblingIndex();
-            Transform current = gameObject.transform;
+            int location = transform.GetSiblingIndex();
             int target = location;
             Transform temp = null;
 
+            Debug.Log("This is the location " + location);
+            Transform temp;
+            int oldIndex = -1;
             for (int i = 0; i < ansVertical.childCount; i++)
             {
-                if (gameObject.transform.position.y > ansVertical.GetChild(i).position.y)
+                if(gameObject.transform.position.y == ansVertical.GetChild(i).position.y)
                 {
-                    target = i;
-                    break;
+                    oldIndex = i;
+                }
+                if (gameObject.transform.position.y > ansVertical.GetChild(i).position.y)// || gameObject.transform.position.y < ansVertical.GetChild(i).position.y)
+                {
+                    temp = ansVertical.GetChild(i);
+                    gameObject.transform.SetSiblingIndex(i);
+                    temp.SetSiblingIndex(oldIndex);
                 }
             }
-            for (int i = location; i > target; i--)
-            {
-                temp = ansVertical.GetChild(i);
-                temp.SetSiblingIndex(i + 1);
-            }
-            //temp.gameObject.transform.SetSiblingIndex(target);
-            if (temp != null)
-            {
-                temp.SetSiblingIndex(target);
-            }
-        }
+        }*/
         
 
     }

@@ -8,10 +8,28 @@ public class submitAnswer : MonoBehaviour
 {
     private bool checking = false;
     private TMP_Text prompt;
+    public int correct = 0;
+    private bool answered = false;
+
+    private GameObject correctAns;
+    private GameObject wrongAns;
     // Start is called before the first frame update
     void Start()
     {
         prompt = GameObject.Find("Prompt").GetComponent<TMP_Text>();
+
+        correctAns = GameObject.Find("CorrectPrompt");
+        wrongAns = GameObject.Find("WrongPrompt");
+        if (correctAns != null)
+        {
+            correctAns.SetActive(false);
+        }
+        if (wrongAns != null)
+        {
+            wrongAns.SetActive(false);
+        }
+        correctAns.SetActive(false);
+        wrongAns.SetActive(false);
     }
 
     public void finalize()
@@ -46,6 +64,7 @@ public class submitAnswer : MonoBehaviour
                             if (tempcheck.Contains(num))
                             {
                                 checking = true;
+                                answered = true;
                                 break;
                             }
                         }
@@ -53,7 +72,7 @@ public class submitAnswer : MonoBehaviour
                 }
                 else if (ansText.Contains("Attack"))
                 {
-                    char num = ansText[6];
+                    char num = ansText[7];
                     if (text == "action = attack();")
                     {
                         TMP_Text checkans = check.GetChild(i + 1).GetChild(0).GetComponent<TMP_Text>();
@@ -63,6 +82,7 @@ public class submitAnswer : MonoBehaviour
                             if (tempcheck.Contains(num))
                             {
                                 checking = true;
+                                answered = true;
                                 break;
                             }
                         }
@@ -70,7 +90,7 @@ public class submitAnswer : MonoBehaviour
                 }
                 else if (ansText.Contains("Heal"))
                 {
-                    char num = ansText[6];
+                    char num = ansText[5];
                     if (text == "action = heal();")
                     {
                         TMP_Text checkans = check.GetChild(i + 1).GetChild(0).GetComponent<TMP_Text>();
@@ -80,6 +100,8 @@ public class submitAnswer : MonoBehaviour
                             if (tempcheck.Contains(num))
                             {
                                 checking = true;
+                                answered=true;
+                                Debug.Log(num);
                                 break;
                             }
                         }
@@ -87,14 +109,17 @@ public class submitAnswer : MonoBehaviour
                 }
             }
         }
-        if (checking)
+        if (checking == true && answered == true)
         {
             Debug.Log("Answer is correct!!!!!!!!!!!!");
             checking = false;
+            correctAns.SetActive(true);
         }
         else
         {
             Debug.Log("Answer is wrong!!!!!!!!!");
+            correct = 2;
+            wrongAns.SetActive(true);
         }
     }
 }
