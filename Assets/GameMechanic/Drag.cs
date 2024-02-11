@@ -96,18 +96,18 @@ public class Drag : EventTrigger
             gameObject.transform.SetParent(checkvlg, false);
         }
 
-        if (word.Contains("Attack") && assembled == false)
+        /*if (word.Contains("Attack") && assembled == false)
         {
-            isAttack = true;
+            isAttack = false; //temp change
             isDodge = false;
-            isHeal = false;
+            isHeal = true;
             assembled = true;
         }
         else if (word.Contains("Dodge") && assembled == false)
         {
             isAttack = false;
-            isDodge = true;
-            isHeal = false;
+            isDodge = false; //temp change
+            isHeal = true;
             assembled = true;
         }
         else if (word.Contains("Heal") && assembled == false)
@@ -144,7 +144,7 @@ public class Drag : EventTrigger
                 healChoices.GetChild(i).gameObject.transform.SetParent(checkvlg, false);
             }
             isHeal = false;
-        }
+        }*/
 
 
         /*if(dragging == false && checkvlg.childCount > 1)
