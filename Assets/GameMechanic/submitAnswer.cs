@@ -78,10 +78,10 @@ public class submitAnswer : MonoBehaviour
                 for(int i = 0;i < check.childCount; i++)
                 {
                     TMP_Text checkText = check.GetChild(i).GetChild(0).GetComponent<TMP_Text>();
-                    if(checkText != null)
+                    if (checkText != null)
                     {
                         string text = checkText.text;
-                        if(text.Contains("bossStun == true"))
+                        if (text.Contains("bossStun == true"))
                         {
                             isStunChecker = true;
                             ifIndex = i;
@@ -91,8 +91,28 @@ public class submitAnswer : MonoBehaviour
             }
             if (isStunChecker && ifIndex != -1)
             {
-                TMP_Text checkText = check.GetChild(ifIndex + 1).GetChild(0).GetComponent<TMP_Text>();
-                if(checkText != null)
+                TMP_Text checkText;
+                try
+                {
+                    checkText = check.GetChild(ifIndex + 1).GetChild(0).GetComponent<TMP_Text>();
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Damaged = true;
+                    health_player = health_player - 1;
+                    playerHealth.text = health_player.ToString();
+                    isStunChecker = false;
+                    break;
+                }
+                catch(UnityException e)
+                {
+                    Damaged = true;
+                    health_player = health_player - 1;
+                    playerHealth.text = health_player.ToString();
+                    isStunChecker = false;
+                    break;
+                }
+                if (checkText != null)
                 {
                     string text = checkText.text;
                     if(text.Contains("attack"))
@@ -113,11 +133,37 @@ public class submitAnswer : MonoBehaviour
             }
             else if (notStunnedChecker && ifIndex != -1)
             {
-                TMP_Text checkText = check.GetChild(ifIndex + 1).GetChild(0).GetComponent<TMP_Text>();
+                TMP_Text checkText;
+                try
+                {
+                    checkText = check.GetChild(ifIndex + 1).GetChild(0).GetComponent<TMP_Text>();
+                }
+                catch(IndexOutOfRangeException e)
+                {
+                    Damaged = true;
+                    health_player = health_player - 1;
+                    playerHealth.text = health_player.ToString();
+                    notStunnedChecker = false;
+                    break;
+                }
+                catch(UnityException e)
+                {
+                    Damaged = true;
+                    health_player = health_player - 1;
+                    playerHealth.text = health_player.ToString();
+                    notStunnedChecker = false;
+                    break;
+                }
                 if( checkText != null )
                 {
                     string text = checkText.text;
-                    if (!text.Contains("block"))
+                    if (text.Contains("counter"))
+                    {
+                        health_boss = health_boss - 1;
+                        bossHealth.text = health_boss.ToString();
+                        notStunnedChecker = false;
+                    }
+                    else
                     {
                         health_player = health_player - 1;
                         playerHealth.text = health_player.ToString();
