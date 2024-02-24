@@ -21,6 +21,10 @@ public class submitAnswer : MonoBehaviour
 
     private bool isStunChecker = false;
     private bool notStunnedChecker = false;
+
+    private Transform ansBlock;
+    private Image imageBlock;
+    private GameObject tryAgain;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,13 @@ public class submitAnswer : MonoBehaviour
         }
         correctAns.SetActive(false);
         wrongAns.SetActive(false);
+        ansBlock = transform.Find("AnsBlock");
+        imageBlock = ansBlock.GetComponent<Image>();
+        tryAgain = GameObject.Find("AnswerWrongPrompt");
+        if(tryAgain != null)
+        {
+            tryAgain.SetActive(false);
+        }
     }
 
     public void finalize()
@@ -177,7 +188,7 @@ public class submitAnswer : MonoBehaviour
 
         if (Damaged)
         {
-            List<Transform> temp = new List<Transform>();
+            /*List<Transform> temp = new List<Transform>();
             for(int i = 0; i < check.childCount; i++)
             {
                 temp.Add(check.GetChild(i).transform);
@@ -186,87 +197,21 @@ public class submitAnswer : MonoBehaviour
             {
                 child.SetParent(choicesBlock, false);
             }
-            Damaged = false;
+            Damaged = false;*/
+            imageBlock.color = Color.red;
+            tryAgain.SetActive(true);
         }
-
-        /*for (int i = 0; i < check.childCount - 1; i++)
-        {
-            //string text = check.GetChild(i).GetComponent<TextMeshProUGUI>().text;
-            TMP_Text checktext = check.GetChild(i).GetChild(0).GetComponent<TMP_Text>();
-            if (checktext != null)
-            {
-                string text = checktext.text;
-                Debug.Log(text);
-                //if (text == "action = attack();")
-                //{
-                    //checking = true;
-                    //break;
-                //}
-                if (ansText.Contains("Dodge"))
-                {
-                    char num = ansText[6];
-                    if (text == "action = dodge();")
-                    {
-                        TMP_Text checkans = check.GetChild(i + 1).GetChild(0).GetComponent<TMP_Text>();
-                        if (checkans != null)
-                        {
-                            string tempcheck = checkans.text;
-                            if (tempcheck.Contains(num))
-                            {
-                                checking = true;
-                                answered = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-                else if (ansText.Contains("Attack"))
-                {
-                    char num = ansText[7];
-                    if (text == "action = attack();")
-                    {
-                        TMP_Text checkans = check.GetChild(i + 1).GetChild(0).GetComponent<TMP_Text>();
-                        if (checkans != null)
-                        {
-                            string tempcheck = checkans.text;
-                            if (tempcheck.Contains(num))
-                            {
-                                checking = true;
-                                answered = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-                else if (ansText.Contains("Heal"))
-                {
-                    char num = ansText[5];
-                    if (text == "action = heal();")
-                    {
-                        TMP_Text checkans = check.GetChild(i + 1).GetChild(0).GetComponent<TMP_Text>();
-                        if (checkans != null)
-                        {
-                            string tempcheck = checkans.text;
-                            if (tempcheck.Contains(num))
-                            {
-                                checking = true;
-                                answered=true;
-                                Debug.Log(num);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
 
         if (health_player == 0 && health_boss != 0)
         {
+            tryAgain.SetActive(false);
             wrongAns.SetActive(true);
         }
         else if (health_boss == 0 && health_player != 0)
         {
+            tryAgain.SetActive(false);
             correctAns.SetActive(true);
+            imageBlock.color = Color.green;
         }
     }
 }
