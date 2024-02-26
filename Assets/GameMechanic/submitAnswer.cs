@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class submitAnswer : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class submitAnswer : MonoBehaviour
     private Transform ansBlock;
     private Image imageBlock;
     private GameObject tryAgain;
+    private Transform submitButton;
+    private Transform loadButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,9 @@ public class submitAnswer : MonoBehaviour
         {
             tryAgain.SetActive(false);
         }
+        submitButton = transform.Find("SubmitButton");
+        loadButton = transform.Find("LoadScene");
+        loadButton.gameObject.SetActive(false);
     }
 
     public void finalize()
@@ -212,6 +218,22 @@ public class submitAnswer : MonoBehaviour
             tryAgain.SetActive(false);
             correctAns.SetActive(true);
             imageBlock.color = Color.green;
+
+            //timer();
+            submitButton.gameObject.SetActive(false);
+
+            //SceneManager.LoadScene("Platform");
+            loadButton.gameObject.SetActive(true);
         }
+    }
+
+    IEnumerator timer()
+    {
+        yield return new WaitForSeconds(4);
+    }
+
+    public void loadOverworld()
+    {
+        SceneManager.LoadScene("Platform");
     }
 }
