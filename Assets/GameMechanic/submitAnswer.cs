@@ -28,7 +28,15 @@ public class submitAnswer : MonoBehaviour
     private GameObject tryAgain;
     private Transform submitButton;
     private Transform loadButton;
+
+    public bool ifStatement = false;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         prompt = GameObject.Find("Prompt").GetComponent<TMP_Text>();
@@ -224,12 +232,18 @@ public class submitAnswer : MonoBehaviour
 
             //SceneManager.LoadScene("Platform");
             loadButton.gameObject.SetActive(true);
+            ifStatement = true;
         }
     }
 
     IEnumerator timer()
     {
         yield return new WaitForSeconds(4);
+    }
+
+    void OnDestroy()
+    {
+        Destroy(gameObject);
     }
 
     public void loadOverworld()
