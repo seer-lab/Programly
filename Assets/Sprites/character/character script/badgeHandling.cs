@@ -10,6 +10,7 @@ public class badgeHandling : MonoBehaviour
     private Transform badges;
     private Transform player;
     public submitAssignment assign;
+    public submitLoop loop;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class badgeHandling : MonoBehaviour
         player = transform.Find("Player");
 
         assign = FindObjectOfType<submitAssignment>();
+        loop = FindObjectOfType<submitLoop>();
 
         GameObject[] scene = GameObject.FindGameObjectsWithTag("DontDestroyOnLoad");
 
@@ -51,6 +53,19 @@ public class badgeHandling : MonoBehaviour
                 for(int i = 0; i < badges.childCount; i++)
                 {
                     if(badges.GetChild(i).gameObject.name == "Assignment badge")
+                    {
+                        badges.GetChild(i).SetParent(player, false);
+                    }
+                }
+            }
+        }
+        if(loop != null)
+        {
+            if(loop.forLoop == true)
+            {
+                for(int i = 0; i < badges.childCount; i++)
+                {
+                    if(badges.GetChild(i).gameObject.name == "For loop badge")
                     {
                         badges.GetChild(i).SetParent(player, false);
                     }
