@@ -44,27 +44,7 @@ public class Drag : EventTrigger
         origPosX = transform.position.x;
         origPosY = transform.position.y;
 
-        //temp = GameObject.Find("PreFabSample")?.transform;
-
-
-        attackChoices = GameObject.Find("AttackCommands")?.transform;
-        defendChoices = GameObject.Find("DodgeCommands")?.transform;
-        healChoices = GameObject.Find("HealCommands")?.transform;
-
         prompt = GameObject.Find("Prompt")?.GetComponent<TMP_Text>();
-
-        /*if(button == null)
-        {
-            button = GetComponent<TMP_Text>();
-            if(button  == null)
-            {
-                Debug.LogError("Button not found");
-                return;
-            }
-        }
-
-        buttonTransform = button.rectTransform;*/
-        //Vector3 buttonPos = buttonTransform.position;
 
     }
 
@@ -83,8 +63,6 @@ public class Drag : EventTrigger
         if (dragging)
         {
             transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            //gameObject.transform.SetParent(temp, false);
-
         }
 
         if (transform.position.x >= leftAns && transform.position.x <= rightAns && dragging == false)
@@ -94,111 +72,7 @@ public class Drag : EventTrigger
         else if (dragging == false && transform.position.x >= leftEdge && transform.position.x <= leftAns)
         {
             gameObject.transform.SetParent(checkvlg, false);
-        }
-
-        /*if (word.Contains("Attack") && assembled == false)
-        {
-            isAttack = false; //temp change
-            isDodge = false;
-            isHeal = true;
-            assembled = true;
-        }
-        else if (word.Contains("Dodge") && assembled == false)
-        {
-            isAttack = false;
-            isDodge = false; //temp change
-            isHeal = true;
-            assembled = true;
-        }
-        else if (word.Contains("Heal") && assembled == false)
-        {
-            isAttack = false;
-            isDodge = false;
-            isHeal = true;
-            assembled = true;
-        }
-
-
-        if(isAttack && assembled == true)
-        {
-            for(int i = 0; i < attackChoices.childCount; i++)
-            {
-                attackChoices.GetChild(i).gameObject.transform.SetParent(checkvlg, false);
-            }
-            isAttack = false;
-        }
-
-        else if(isDodge && assembled == true)
-        {
-            for (int i = 0; i < defendChoices.childCount; i++)
-            {
-                defendChoices.GetChild(i).gameObject.transform.SetParent(checkvlg, false);
-            }
-            isDodge = false;
-        }
-
-        else if(isHeal && assembled == true)
-        {
-            for (int i = 0; i < healChoices.childCount; i++)
-            {
-                healChoices.GetChild(i).gameObject.transform.SetParent(checkvlg, false);
-            }
-            isHeal = false;
-        }*/
-
-
-        /*if(dragging == false && checkvlg.childCount > 1)
-        {
-            int location = gameObject.transform.GetSiblingIndex();
-            Transform current = gameObject.transform;
-            int target = location;
-            Transform temp = null;
-
-            for(int i = 0; i < checkvlg.childCount; i++)
-            {
-                if(gameObject.transform.position.y  > checkvlg.GetChild(i).position.y)
-                {
-                    target = i;
-                    break;
-                }
-            }
-            for (int i = location; i > target; i--)
-            {
-                temp = checkvlg.GetChild(i);
-                temp.SetSiblingIndex(i+1);
-            }
-            //temp.gameObject.transform.SetSiblingIndex(target);
-            if (temp != null)
-            {
-                temp.SetSiblingIndex(target);
-            }
-        }*/
-
-        /*if (dragging == false && ansVertical.childCount > 1)
-        {
-            int location = transform.GetSiblingIndex();
-            int target = location;
-            Transform temp = null;
-
-            Debug.Log("This is the location " + location);
-            Transform temp;
-            int oldIndex = -1;
-            for (int i = 0; i < ansVertical.childCount; i++)
-            {
-                if(gameObject.transform.position.y == ansVertical.GetChild(i).position.y)
-                {
-                    oldIndex = i;
-                }
-                if (gameObject.transform.position.y > ansVertical.GetChild(i).position.y)// || gameObject.transform.position.y < ansVertical.GetChild(i).position.y)
-                {
-                    temp = ansVertical.GetChild(i);
-                    gameObject.transform.SetSiblingIndex(i);
-                    temp.SetSiblingIndex(oldIndex);
-                }
-            }
-        }*/
-        
-
+        }     
     }
 
     public override void OnPointerDown(PointerEventData eventData)

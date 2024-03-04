@@ -9,12 +9,16 @@ public class badgeHandling : MonoBehaviour
     public submitAnswer ans;
     private Transform badges;
     private Transform player;
+    public submitAssignment assign;
+
     // Start is called before the first frame update
     void Start()
     {
         ans = FindObjectOfType<submitAnswer>();
         badges = GameObject.Find("NonCollected")?.transform;
         player = transform.Find("Player");
+
+        assign = FindObjectOfType<submitAssignment>();
 
         GameObject[] scene = GameObject.FindGameObjectsWithTag("DontDestroyOnLoad");
 
@@ -27,13 +31,29 @@ public class badgeHandling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ans.ifStatement == true)
+        if(ans != null)
         {
-            for(int i = 0; i < badges.childCount; i++)
+            if (ans.ifStatement == true)
             {
-                if(badges.GetChild(i).gameObject.name == "If statement badge")
+                for (int i = 0; i < badges.childCount; i++)
                 {
-                    badges.GetChild(i).SetParent(player, false);
+                    if (badges.GetChild(i).gameObject.name == "If statement badge")
+                    {
+                        badges.GetChild(i).SetParent(player, false);
+                    }
+                }
+            }
+        }
+        if(assign != null)
+        {
+            if(assign.assignStatement == true)
+            {
+                for(int i = 0; i < badges.childCount; i++)
+                {
+                    if(badges.GetChild(i).gameObject.name == "Assignment badge")
+                    {
+                        badges.GetChild(i).SetParent(player, false);
+                    }
                 }
             }
         }

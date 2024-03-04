@@ -7592,6 +7592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ans: {fileID: 0}
+  assign: {fileID: 0}
 --- !u!1 &801695748
 GameObject:
   m_ObjectHideFlags: 0
@@ -40612,7 +40613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116470965}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Assignment badge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
