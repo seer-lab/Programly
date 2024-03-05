@@ -81,7 +81,8 @@ public class submitLoop : MonoBehaviour
 
         for(int i = 0; i < ansVLG.childCount; i++)
         {
-            TMP_Text ansText = ansVLG.GetChild(i).GetChild(0).GetComponent<TMP_Text>();
+            TMP_Text ansText = ansVLG.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
+            count = 0;
             if(ansText != null)
             {
                 string text = ansText.text;
