@@ -44,5 +44,9 @@ public class interactVillager : MonoBehaviour
         {
             SceneManager.LoadScene("Assign problem");
         }
+        else if(villagerName == "For Villager")
+        {
+            SceneManager.LoadScene("For problem");
+        }
     }
 }
