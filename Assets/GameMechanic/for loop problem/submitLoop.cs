@@ -29,6 +29,13 @@ public class submitLoop : MonoBehaviour
     private Image imageBlock;
     private Transform ansBlock;
 
+    public float posX;
+    public float posY;
+    public float posZ;
+    public interactVillager temp;
+
+    private ForSpeech speech;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -65,6 +72,19 @@ public class submitLoop : MonoBehaviour
         ansVLG = transform.Find("AnsVLG");
         ansBlock = transform.Find("AnsBlock");
         imageBlock = ansBlock.GetComponent<Image>();
+
+
+        /*GameObject[] scene = GameObject.FindGameObjectsWithTag("Platform");
+
+        foreach (GameObject gameObj in scene)
+        {
+            gameObj.SetActive(false);
+        }*/
+        speech = FindObjectOfType<ForSpeech>();
+        if(speech != null)
+        {
+            speech.dialogue.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -156,5 +176,6 @@ public class submitLoop : MonoBehaviour
     public void loadOverworld()
     {
         SceneManager.LoadScene("Platform");
+
     }
 }

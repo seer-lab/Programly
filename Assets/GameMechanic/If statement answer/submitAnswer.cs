@@ -29,6 +29,8 @@ public class submitAnswer : MonoBehaviour
     private Transform submitButton;
     private Transform loadButton;
 
+    private IfSpeech speech;
+
     public bool ifStatement = false;
     // Start is called before the first frame update
 
@@ -65,6 +67,12 @@ public class submitAnswer : MonoBehaviour
         submitButton = transform.Find("SubmitButton");
         loadButton = transform.Find("LoadScene");
         loadButton.gameObject.SetActive(false);
+
+        speech = FindObjectOfType<IfSpeech>();
+        if (speech != null)
+        {
+            speech.dialogue.SetActive(false);
+        }
     }
 
     public void finalize()

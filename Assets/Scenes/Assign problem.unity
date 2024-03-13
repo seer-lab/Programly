@@ -383,7 +383,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_text
-      value: ' cloth = armor'
+      value: cloth = armor
       objectReference: {fileID: 0}
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_fontSize
@@ -1544,7 +1544,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_text
-      value: ' int weapon = "sword"'
+      value: int weapon = "sword"
       objectReference: {fileID: 0}
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_fontSize
@@ -1805,7 +1805,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_text
-      value: ' string weapon = "sword"'
+      value: string weapon = "sword"
       objectReference: {fileID: 0}
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_fontSize
@@ -2260,7 +2260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_text
-      value: ' string clothes = "armor"'
+      value: string clothes = "armor"
       objectReference: {fileID: 0}
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_fontSize
@@ -2529,7 +2529,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_text
-      value: ' weapon = sword'
+      value: weapon = sword
       objectReference: {fileID: 0}
     - target: {fileID: 2695687320456702563, guid: c1dfcb1ad42d9d849aab71e60513f3bb, type: 3}
       propertyPath: m_fontSize

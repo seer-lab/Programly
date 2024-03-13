@@ -5,7 +5,7 @@ using TMPro;
 
 public class AssignSpeech : MonoBehaviour
 {
-    private GameObject dialogue;
+    public GameObject dialogue;
     private List<string> speech = new List<string>();
     int count = 0;
 

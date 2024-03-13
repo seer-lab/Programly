@@ -7,6 +7,7 @@ public class interactVillager : MonoBehaviour
 {
     bool collided = false;
     private string villagerName;
+    List<GameObject> badges = new List<GameObject>();
     
     // Update is called once per frame
     void Update()

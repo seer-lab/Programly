@@ -20,6 +20,7 @@ public class submitAssignment : MonoBehaviour
     public bool assignStatement = false;
     private GameObject loadScene;
 
+    private AssignSpeech speech;
 
     void Awake()
     {
@@ -57,7 +58,11 @@ public class submitAssignment : MonoBehaviour
         ansBlock = transform.Find("AnsBlock");
         imageBlock = ansBlock.GetComponent<Image>();
 
-
+        speech = FindObjectOfType<AssignSpeech>();
+        if (speech != null)
+        {
+            speech.dialogue.SetActive(false);
+        }
     }
 
     // Update is called once per frame

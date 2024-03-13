@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DontDestroyOnLoad
   - Villager
+  - Platform
+  - Camera
   layers:
   - Default
   - TransparentFX
