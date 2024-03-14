@@ -16,6 +16,7 @@ public class IfSpeech : MonoBehaviour
     {
         dialogue = GameObject.Find("IfDialogue");
         dialogue.SetActive(false);
+        //speech.Add("I am the villager that gives if statement problems");
         speech.Add("If Else statements are concepts that teach you if a certain condition is fulfilled it will do the following thing");
         speech.Add("And if the condition isn't fulfilled it would follow the one under the else statement");
         speech.Add("There are other things to learn about it such as 'else if' but those two would be enough to start off");
@@ -36,6 +37,7 @@ public class IfSpeech : MonoBehaviour
                 else
                 {
                     dialogue.SetActive(false);
+                    count = 0;
                 }
                 count++;
             }

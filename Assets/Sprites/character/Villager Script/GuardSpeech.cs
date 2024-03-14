@@ -40,6 +40,7 @@ public class GuardSpeech : MonoBehaviour
                 else
                 {
                     dialogue.SetActive(false);
+                    count = 0;
                 }
                 count++;
             }
