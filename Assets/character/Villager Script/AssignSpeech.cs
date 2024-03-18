@@ -16,7 +16,7 @@ public class AssignSpeech : MonoBehaviour
     {
         dialogue = GameObject.Find("AssignDialogue");
         dialogue.SetActive(false);
-        //speech.Add("I am the villager that gives assignment statement problems!");
+        speech.Add("I am the villager that gives assignment statement problems!");
         speech.Add("Assign statement is a concept that basically lets you attach an action to variable");
         speech.Add("To identify a assignment statement the '=' sign should be present and before it should consist the variable name");
         speech.Add("And the statement after the '=' is the statement you are assigning to the variable name");
@@ -36,13 +36,13 @@ public class AssignSpeech : MonoBehaviour
                 if (count < speech.Count)
                 {
                     text.text = speech[count];
+                    count++;
                 }
                 else
                 {
                     dialogue.SetActive(false);
                     count = 0;
                 }
-                count++;
             }
         }
     }
@@ -52,11 +52,14 @@ public class AssignSpeech : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             dialogue.SetActive(true);
+            text.text = speech[count];
+            //count = 0;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         dialogue?.SetActive(false);
+        count = 0;
     }
 }

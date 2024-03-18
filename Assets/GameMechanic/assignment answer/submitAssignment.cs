@@ -76,6 +76,11 @@ public class submitAssignment : MonoBehaviour
         Transform ans = GameObject.Find("AnsVLG")?.transform;
         int health = int.Parse(tries.text);
 
+        if(health > 0)
+        {
+
+        }
+
         for(int i = 0; i < ans.childCount; i++)
         {
             TMP_Text ansText = ans.GetChild(i).GetChild(0).GetComponent<TMP_Text>();
@@ -106,6 +111,7 @@ public class submitAssignment : MonoBehaviour
         {
             imageBlock.color = Color.red;
             deadPrompt.SetActive(true);
+            loadScene.SetActive(true);
         }
 
 

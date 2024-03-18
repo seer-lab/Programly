@@ -228,6 +228,8 @@ public class submitAnswer : MonoBehaviour
         {
             tryAgain.SetActive(false);
             wrongAns.SetActive(true);
+            submitButton.gameObject.SetActive(false);
+            loadButton.gameObject.SetActive(true);
         }
         else if (health_boss == 0 && health_player != 0)
         {

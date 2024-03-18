@@ -161,6 +161,7 @@ public class submitLoop : MonoBehaviour
         {
             imageBlock.color = Color.red;
             deadPrompt.SetActive(true);
+            loadScene.SetActive(true);
         }
 
         if(boss == 0)

@@ -16,7 +16,7 @@ public class ForSpeech : MonoBehaviour
     {
         dialogue = GameObject.Find("ForDialogue");
         dialogue.SetActive(false);
-        //speech.Add("I am the villager that teaches for loops!");
+        speech.Add("I am the villager that teaches for loops!");
         speech.Add("For loops are concepts that allow you to repeat an action to a certain number of times");
         speech.Add("To identify a for loop the 'for' word should be found followed by a '()' with the conditions of the for loop being inside the '()'");
         speech.Add("An example to this would be 'for(int i = 0; i < 3; i++)'");
@@ -36,13 +36,13 @@ public class ForSpeech : MonoBehaviour
                 if (count < speech.Count)
                 {
                     text.text = speech[count];
+                    count++;
                 }
                 else
                 {
                     dialogue.SetActive(false);
                     count = 0;
                 }
-                count++;
             }
         }
     }
@@ -52,11 +52,14 @@ public class ForSpeech : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             dialogue.SetActive(true);
+            text.text = speech[count];
+            //count = 0;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         dialogue?.SetActive(false);
+        count = 0;
     }
 }

@@ -8,6 +8,7 @@ public class interactVillager : MonoBehaviour
     bool collided = false;
     private string villagerName;
     List<GameObject> badges = new List<GameObject>();
+    private bool isBoss = false;
     
     // Update is called once per frame
     void Update()
@@ -15,7 +16,15 @@ public class interactVillager : MonoBehaviour
         if(collided == true)
         {
             if(Input.GetKeyDown(KeyCode.F)){
-                loadChallenge();
+                //loadChallenge();
+                if(isBoss == true)
+                {
+                    loadBoss();
+                }
+                else
+                {
+                    loadChallenge();
+                }
             }
         }
     }
@@ -27,6 +36,11 @@ public class interactVillager : MonoBehaviour
             collided = true;
             villagerName = collision.gameObject.name;
             Debug.Log("Collided");
+        }
+        else if(collision.gameObject.tag == "Boss")
+        {
+            collided = true;
+            isBoss = true;
         }
     }
 
@@ -49,5 +63,10 @@ public class interactVillager : MonoBehaviour
         {
             SceneManager.LoadScene("For problem");
         }
+    }
+
+    private void loadBoss()
+    {
+        SceneManager.LoadScene("Boss Problem");
     }
 }

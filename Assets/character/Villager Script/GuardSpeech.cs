@@ -15,7 +15,7 @@ public class GuardSpeech : MonoBehaviour
     {
         dialogue = GameObject.Find("GuardDialogue");
         dialogue.SetActive(false);
-        //speech.Add("Hello there traveler!");
+        speech.Add("Hello there traveler!");
         speech.Add("Welcome to our village");
         speech.Add("Since you have entered our village, I assume you want to learn the basics of programming");
         speech.Add("To learn the basics of programming, there are multiple villagers settled across the village");
@@ -36,13 +36,13 @@ public class GuardSpeech : MonoBehaviour
                 if(count < speech.Count)
                 {
                     text.text = speech[count];
+                    count++;
                 }
                 else
                 {
                     dialogue.SetActive(false);
                     count = 0;
                 }
-                count++;
             }
         }
     }
@@ -52,11 +52,14 @@ public class GuardSpeech : MonoBehaviour
         if(collide.gameObject.tag == "Player")
         {
             dialogue.SetActive(true);
+            text.text = speech[count];
+            //count = 0;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collide)
     {
         dialogue.SetActive(false);
+        count = 0;
     }
 }

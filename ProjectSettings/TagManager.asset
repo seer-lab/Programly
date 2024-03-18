@@ -8,6 +8,7 @@ TagManager:
   - Villager
   - Platform
   - Camera
+  - Boss
   layers:
   - Default
   - TransparentFX
