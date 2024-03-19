@@ -49,8 +49,8 @@ public class bossSpeech : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             dialogue.SetActive(true);
-            text.text = speech[count];
-            //count = 0;
+            text.text = speech[0];
+            count = 1;
         }
     }
 
