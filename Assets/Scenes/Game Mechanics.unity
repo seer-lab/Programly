@@ -266,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4048812239784099198, guid: 0776eacf23a309c43842ce054f357f8d, type: 3}
       propertyPath: m_text
-      value: 'You ran out of health '
+      value: You ran out of health!
       objectReference: {fileID: 0}
     - target: {fileID: 4048812239784099198, guid: 0776eacf23a309c43842ce054f357f8d, type: 3}
       propertyPath: m_fontAsset
@@ -383,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4048812239784099198, guid: 0776eacf23a309c43842ce054f357f8d, type: 3}
       propertyPath: m_text
-      value: Answer is wrong try again
+      value: You are wrong!
       objectReference: {fileID: 0}
     - target: {fileID: 4048812239784099198, guid: 0776eacf23a309c43842ce054f357f8d, type: 3}
       propertyPath: m_fontAsset
@@ -2089,7 +2089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871508271720769067, guid: bc9b6758db75d6e4fa284230c348a21e, type: 3}
       propertyPath: m_fontSize
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7871508271720769067, guid: bc9b6758db75d6e4fa284230c348a21e, type: 3}
       propertyPath: m_fontAsset
@@ -2097,7 +2097,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5e0b036c6675d6f4893349499c700be9, type: 2}
     - target: {fileID: 7871508271720769067, guid: bc9b6758db75d6e4fa284230c348a21e, type: 3}
       propertyPath: m_fontSizeBase
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7871508271720769067, guid: bc9b6758db75d6e4fa284230c348a21e, type: 3}
       propertyPath: m_sharedMaterial
@@ -2609,7 +2609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4048812239784099198, guid: 0776eacf23a309c43842ce054f357f8d, type: 3}
       propertyPath: m_text
-      value: Congratulations you beaten the enemy!
+      value: You are correct!
       objectReference: {fileID: 0}
     - target: {fileID: 4048812239784099198, guid: 0776eacf23a309c43842ce054f357f8d, type: 3}
       propertyPath: m_fontAsset

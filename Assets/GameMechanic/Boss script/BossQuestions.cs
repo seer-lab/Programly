@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossQuestions : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class BossQuestions : MonoBehaviour
     [SerializeField] private Transform vlg;
     [SerializeField] private Transform checkVLG;
     [SerializeField] private Image block;
+    private bossSpeech bossDialogue;
+
+    [SerializeField] private Transform button;
+    [SerializeField] private Transform submit;
+    [SerializeField] private Transform dead;
 
     void Awake()
     {
@@ -33,10 +39,18 @@ public class BossQuestions : MonoBehaviour
         prompt = GameObject.Find("Prompt").GetComponent<TMP_Text>();
         playerHealth = GameObject.Find("playerHealth").GetComponent<TMP_Text>();
         bossHealth = GameObject.Find("bossHealth").GetComponent<TMP_Text>();
+        bossDialogue = FindObjectOfType<bossSpeech>();
+        {
+            if(bossDialogue != null)
+            {
+                bossDialogue.dialogue.SetActive(false);
+            }
+        }
 
+        button.gameObject.SetActive(false);
+        dead.gameObject.SetActive(false);
         rnd = new System.Random();
         index = rnd.Next(0, question.Count);
-
         prompt.text = question[index].prompt;
         changeButtonString(vlg, index);
     }
@@ -44,7 +58,9 @@ public class BossQuestions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(correct == true)
+        int boss_health = int.Parse(bossHealth.text);
+        int player_health = int.Parse(playerHealth.text);
+        if (correct == true)
         {
             List<Transform> temp = new List<Transform>();
             for (int i = 0; i < checkVLG.childCount; i++)
@@ -56,9 +72,26 @@ public class BossQuestions : MonoBehaviour
                 child.SetParent(vlg, false);
             }
             index = rnd.Next(0, question.Count);
+            while(question[index].completed == true)
+            {
+                index = rnd.Next(0, question.Count);
+            }
             changeButtonString(vlg, index);
             prompt.text = question[index].prompt;
             correct = false;
+        }
+
+        if (player_health == 0 || boss_health == 0)
+        {
+            if(player_health == 0)
+            {
+                dead.gameObject.SetActive(true);
+            }
+            else
+            {
+                button.gameObject.SetActive(true);
+            }
+            submit.gameObject.SetActive(false);
         }
     }
 
@@ -70,6 +103,7 @@ public class BossQuestions : MonoBehaviour
 
         if (boss_health > 0 || player_health > 0)
         {
+            Debug.Log(question[index].completed);
             if (question[index].completed == false)
             {
                 prompt.text = question[index].prompt;
@@ -286,6 +320,11 @@ public class BossQuestions : MonoBehaviour
         }
     }
 
+    public void loadEnvironment()
+    {
+        SceneManager.LoadScene("Platform");
+    }
+
     void changeButtonString(Transform vlg, int index)
     {
         for (int i = 0; i < vlg.childCount; i++)
@@ -310,7 +349,7 @@ public class BossQuestions : MonoBehaviour
 
                 else if (i == 3)
                 {
-                    checkText.text = "attack";
+                    checkText.text = "attack()";
                 }
             }
 
