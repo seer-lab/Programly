@@ -56,7 +56,11 @@ public class bossSpeech : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        dialogue?.SetActive(false);
-        count = 0;
+        if (collision.gameObject.tag == "Player")
+        {
+            dialogue.SetActive(false);
+            count = 1;
+            text.text = speech[0];
+        }
     }
 }

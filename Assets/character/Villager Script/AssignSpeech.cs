@@ -52,14 +52,18 @@ public class AssignSpeech : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             dialogue.SetActive(true);
-            text.text = speech[count];
-            //count = 0;
+            text.text = speech[0];
+            count = 1;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        dialogue?.SetActive(false);
-        count = 0;
+        if (collision.gameObject.tag == "Player")
+        {
+            dialogue.SetActive(false);
+            count = 1;
+            text.text = speech[0];
+        }
     }
 }

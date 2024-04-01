@@ -22,7 +22,8 @@ public class GuardSpeech : MonoBehaviour
         speech.Add("that will give you challenges on certain concepts");
         speech.Add("To access those challenges just go near the villager and press the 'F' key");
         speech.Add("Upon completing the challenge a badge will be given");
-        speech.Add("Once you have cleared all the challenges, there will be a big challenge to test your knowledge");
+        speech.Add("Once you have cleared all the challenges, the gate at the end of the path will open up");
+        speech.Add("Once the gate opens up, the path will directly lead you to the boss where your knowledge will then be tested");
         speech.Add("Good luck traveler!");
     }
 
@@ -52,14 +53,18 @@ public class GuardSpeech : MonoBehaviour
         if(collide.gameObject.tag == "Player")
         {
             dialogue.SetActive(true);
-            text.text = speech[count];
-            //count = 0;
+            text.text = speech[0];
+            count = 1;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collide)
     {
-        dialogue.SetActive(false);
-        count = 0;
+        if (collide.gameObject.tag == "Player")
+        {
+            dialogue.SetActive(false);
+            count = 1;
+            text.text = speech[0];
+        }
     }
 }
