@@ -8,6 +8,11 @@ public class BadgeAppear : MonoBehaviour
     [SerializeField] GameObject forbadge;
     [SerializeField] GameObject ifbadge;
     [SerializeField] GameObject player;
+    [SerializeField] interactVillager temp;
+
+    [SerializeField] private GameObject iftemp;
+    [SerializeField] private GameObject fortemp;
+    [SerializeField] private GameObject assigntemp;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,34 @@ public class BadgeAppear : MonoBehaviour
             {
                 forbadge.SetActive(true);
             }
+        }
+
+        if(temp.badgeTempGone == true)
+        {
+            for(int i = 0; i < player.transform.childCount; i++)
+            {
+                player.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        else if(temp.badgeTempGone == false)
+        {
+            for (int i = 0; i < player.transform.childCount; i++)
+            {
+                player.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+
+        if(iftemp.activeSelf == false)
+        {
+            ifbadge.SetActive(false);
+        }
+        if(fortemp.activeSelf == false)
+        {
+            forbadge.SetActive(false);
+        }
+        if(assigntemp.activeSelf == false)
+        {
+            assignbadge.SetActive(false);
         }
     }
 }

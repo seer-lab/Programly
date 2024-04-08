@@ -29,16 +29,16 @@ public class submitLoop : MonoBehaviour
     private Image imageBlock;
     private Transform ansBlock;
 
-    public float posX;
-    public float posY;
-    public float posZ;
-    public interactVillager temp;
-
     private ForSpeech speech;
+
+    private GameObject player;
+    private interactVillager temp;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        player = GameObject.Find("Player");
+        temp = player.GetComponent<interactVillager>();
     }
 
     // Start is called before the first frame update
@@ -125,6 +125,7 @@ public class submitLoop : MonoBehaviour
                             if (check.Contains("attack"))
                             {
                                 boss = 0;
+                                damaged = false;
                             }
                             else
                             {
@@ -176,6 +177,7 @@ public class submitLoop : MonoBehaviour
 
     public void loadOverworld()
     {
+        temp.badgeTempGone = false;
         SceneManager.LoadScene("Platform");
 
     }

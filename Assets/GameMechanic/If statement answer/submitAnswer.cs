@@ -32,11 +32,15 @@ public class submitAnswer : MonoBehaviour
     private IfSpeech speech;
 
     public bool ifStatement = false;
+    private GameObject player;
+    private interactVillager temp;
     // Start is called before the first frame update
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        player = GameObject.Find("Player");
+        temp = player.GetComponent<interactVillager>();
     }
 
     void Start()
@@ -258,6 +262,7 @@ public class submitAnswer : MonoBehaviour
 
     public void loadOverworld()
     {
+        temp.badgeTempGone = false;
         SceneManager.LoadScene("Platform");
     }
 }

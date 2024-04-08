@@ -24,6 +24,9 @@ public class BossQuestions : MonoBehaviour
     [SerializeField] private Transform submit;
     [SerializeField] private Transform dead;
 
+    private GameObject player;
+    private interactVillager temp;
+
     void Awake()
     {
         question.Add(new Question("Program an if statement that will attack once boss is tired and counter if not"));
@@ -32,6 +35,8 @@ public class BossQuestions : MonoBehaviour
         question.Add(new Question("Program a for loop that attacks the boss 2 times"));
         question.Add(new Question("Quickly assign your action with a shield of type string to dodge the attack"));
         question.Add(new Question("Quickly assign the dodge with the type of int a value of 4 to dodge the enemy's attack"));
+        player = GameObject.Find("Player");
+        temp = player.GetComponent<interactVillager>();
     }
 
     void Start()
@@ -322,6 +327,7 @@ public class BossQuestions : MonoBehaviour
 
     public void loadEnvironment()
     {
+        temp.badgeTempGone = false;
         SceneManager.LoadScene("Platform");
     }
 

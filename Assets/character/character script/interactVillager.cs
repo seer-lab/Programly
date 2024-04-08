@@ -9,6 +9,7 @@ public class interactVillager : MonoBehaviour
     private string villagerName;
     List<GameObject> badges = new List<GameObject>();
     private bool isBoss = false;
+    public bool badgeTempGone = false;
     
     // Update is called once per frame
     void Update()
@@ -53,20 +54,24 @@ public class interactVillager : MonoBehaviour
     {
         if(villagerName == "If Villager")
         {
+            badgeTempGone = true;
             SceneManager.LoadScene("Game Mechanics");
         }
         else if(villagerName == "Assignment Villager")
         {
+            badgeTempGone = true;
             SceneManager.LoadScene("Assign problem");
         }
         else if(villagerName == "For Villager")
         {
+            badgeTempGone = true;
             SceneManager.LoadScene("For problem");
         }
     }
 
     private void loadBoss()
     {
+        badgeTempGone = true;
         SceneManager.LoadScene("Boss Problem");
     }
 }

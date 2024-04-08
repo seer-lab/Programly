@@ -21,10 +21,14 @@ public class submitAssignment : MonoBehaviour
     private GameObject loadScene;
 
     private AssignSpeech speech;
+    private GameObject player;
+    private interactVillager temp;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        player = GameObject.Find("Player");
+        temp = player.GetComponent<interactVillager>();
     }
 
     // Start is called before the first frame update
@@ -127,6 +131,7 @@ public class submitAssignment : MonoBehaviour
     
     public void loadOverworld()
     {
+        temp.badgeTempGone = false;
         SceneManager.LoadScene("Platform");
     }
 }
