@@ -4,3 +4,11 @@ Programly is a basic game that teaches the basic concepts of programming to peop
 
 
 
+## Credits
+Environment and Environment Objects ~ https://seliel-the-shaper.itch.io/gentle-forest by Seliel the Sharper\
+Player Character Sprite ~ https://game-endeavor.itch.io/mystic-woods by Game Endeavor\
+Villagers ~ https://cuddle-bug.itch.io/apocalypse by cuddle bug\
+https://elvgames.itch.io/free-retro-game-world-sprites by ELV Games\
+Boss Sprite ~ https://opengameart.org/content/bosses-and-monsters-spritesheets-ars-notoria by Stephen Challener (RedShrike)\
+Badge Sprite ~ https://opengameart.org/content/level-badge-button-gui by J&T Story (Bankrot Studio)\
+Fence Sprite ~ https://opengameart.org/content/fences-walls-and-a-gate by .bee
