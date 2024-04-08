@@ -5,7 +5,7 @@ Programly is a basic game that teaches the basic concepts of programming to peop
 ## Instructions
 Movement of character is done using the WASD keys\
 Left click of the mouse is used to progress through the dialogues\
-Pressing the F button when player is near to the villager or boss triggers the challenge\
+Pressing the F button when player is near to the villager or boss triggers the challenge
 
 
 
