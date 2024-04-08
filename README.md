@@ -4,6 +4,10 @@ Programly is a basic game that teaches the basic concepts of programming to peop
 
 
 
+https://github.com/seer-lab/Programly/assets/90706055/a731fdc8-2d0f-45bc-b0f4-1ebe116bbf5e
+
+
+
 ## Credits
 Environment and Environment Objects ~ https://seliel-the-shaper.itch.io/gentle-forest by Seliel the Sharper\
 Player Character Sprite ~ https://game-endeavor.itch.io/mystic-woods by Game Endeavor\
