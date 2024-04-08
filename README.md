@@ -2,6 +2,11 @@
 
 Programly is a basic game that teaches the basic concepts of programming to people who have not coded before and is interested in learning the basic concepts. The game allows you to roam around the map similar to the popular game Pokemon and instead of catching pokemons, the player will instead find programming challenges across the map. Once completing all the challenges present in the map, a passageway to the boss will open and the player can then test their knowledge on the boss.
 
+## Instructions
+Movement of character is done using the WASD keys\
+Left click of the mouse is used to progress through the dialogues\
+Pressing the F button when player is near to the villager or boss triggers the challenge\
+
 
 
 https://github.com/seer-lab/Programly/assets/90706055/a731fdc8-2d0f-45bc-b0f4-1ebe116bbf5e
